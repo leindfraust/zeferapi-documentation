@@ -4,6 +4,7 @@ import vercel from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
+    favicon: './public/favicon.svg',
     output: 'static',
     adapter: vercel(),
     integrations: [
@@ -16,6 +17,10 @@ export default defineConfig({
                 {
                     label: "Introduction",
                     link: "/introduction",
+                },
+                {
+                    label: "Prerequisites",
+                    link: "/prerequisites"
                 },
                 {
                     label: "Usage",
