@@ -1,0 +1,30 @@
+---
+title: HTTP API
+description: A guide how to access ZeFer API through HTTP API.
+---
+
+The ZeFer blog posts can currently only be accessed through the HTTP API, which requires Bearer Token Authentication. Before proceeding, ensure that you have created an account on ZeFer. The API is hosted on [render.com](https://render.com/).
+
+To get your blog posts on ZeFer, use the URL below and don't forget to insert your API key on the Bearer Token Authentication when requesting.
+
+```markdown
+https://zefer-api.onrender.com/posts
+```
+
+## Basic Usage
+
+```javascript
+import { getHtml, getText } from "zefer-lib";
+
+const url = "https://zefer-api.onrender.com/posts";
+
+const blogPosts = fetch(url, {
+    headers: {
+        Authorization: `Bearer ${process.env.ZEFER_API_KEY}`,
+    },
+});
+
+const response = await blogPosts.json();
+const html = getHtml(response?.content[0]); // get HTML of the first blog post content
+const text = getText(response?.content[0]); // get plain text of the first blog post content
+```
