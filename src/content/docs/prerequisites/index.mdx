@@ -1,0 +1,24 @@
+---
+title: Prerequisites
+description: Requirements to fully engage with ZeFer API.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+ZeFer blog posts uses [Tiptap](https://tiptap.dev/) for it's WSWYG editor and uploaded it to our database via JSON.
+You can not parse the JSON `content` without a converter. We made an npm package for this.
+
+### Install `zefer-lib` 
+
+<Tabs>
+    <TabItem label="npm">
+    ```txt
+    npm i zefer-lib
+    ```
+    </TabItem>
+    <TabItem label="yarn">
+    ```txt
+    yarn i zefer-lib
+    ```
+    </TabItem>
+</Tabs>
