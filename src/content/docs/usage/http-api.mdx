@@ -14,17 +14,14 @@ https://zefer-api.onrender.com/posts
 ## Basic Usage
 
 ```javascript
-import { getHtml, getText } from "zefer-lib";
+import { getHtml, getText, getPost, getPosts } from "zefer-lib";
 
-const url = "https://zefer-api.onrender.com/posts";
-
-const blogPosts = fetch(url, {
-    headers: {
-        Authorization: `Bearer ${process.env.ZEFER_API_KEY}`,
-    },
+const getPost = await getPost(process.env.ZEFER_API_KEY as string, 'POST_ID or SLUG/TITLE_ID'); // get specific post
+const getPosts = await getPosts(process.env.ZEFER_API_KEY as string, { // get all posts
+    limit: 10,
+    search: "search query",
 });
 
-const response = await blogPosts.json();
-const html = getHtml(response?.content[0]); // get HTML of the first blog post content
-const text = getText(response?.content[0]); // get plain text of the first blog post content
+const html = getHtml(getPost.content); // get HTML of the blog post content
+const text = getText(getPost.content); // get plain text of the blog post content
 ```
