@@ -1,0 +1,25 @@
+---
+title: Basic Usage
+description: A guide how to use ZeFer API with zefer-lib.
+---
+
+Access your blog posts from ZeFer with this library. Easily get your blog posts and use them in your application.
+
+## Basic Example
+
+```javascript
+import { zefer } from "zefer-lib";
+
+const getPost = zefer.getPost(process.env.ZEFER_API_KEY as string, 'POST_ID or SLUG/TITLE_ID').then((response) => {  // get specific post
+    const html = zefer.getHtml(response?.content); // get HTML of the blog post content
+    console.log(html);
+});
+
+// or
+
+(async () => {
+    const response = await zefer.getPost(process.env.ZEFER_API_KEY as string, 'POST_ID or SLUG/TITLE_ID');  // get specific post
+    const html = zefer.getHtml(response?.content); // get HTML of the blog post content
+    console.log(html);
+})();
+```

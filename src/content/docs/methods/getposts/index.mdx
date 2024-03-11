@@ -1,0 +1,45 @@
+---
+title: getPosts
+description: getPosts method of zefer-lib.
+---
+
+# `getPosts`
+
+The `getPosts` method is used to get posts on ZeFer. It returns a list of posts that match the search query and other options provided.
+
+```javascript
+import { zefer } from "zefer-lib";
+
+const getPosts = zefer.getPosts(process.env.ZEFER_API_KEY as string, { // get all posts
+    limit: 10,
+    search: "search query",
+}).then((posts) => {
+    console.log(posts);
+});
+
+// or
+
+(async () => {
+    const posts = await zefer.getPosts(process.env.ZEFER_API_KEY as string, { // get all posts
+        limit: 10,
+        search: "search query",
+    });
+    console.log(posts);
+})();
+```
+
+## Parameters
+
+| Name    | Type                    | Description                      |
+| ------- | ----------------------- | -------------------------------- |
+| token   | env                     | Your API Key                     |
+| options | PostsOptions (optional) | The options for retrieving posts |
+
+### PostsOptions (optional)
+
+| Name    | Type   | Description                             |
+| ------- | ------ | --------------------------------------- |
+| q       | string | The search query                        |
+| cursor  | string | The cursor for pagination               |
+| limit   | number | The maximum number of posts to retrieve |
+| orderBy | string | The field to order the posts by         |

@@ -1,0 +1,31 @@
+---
+title: getText
+description: getText method of zefer-lib.
+---
+
+# `getText`
+
+The `getText` method is used to get the text of the post content.
+
+```javascript
+import { zefer } from "zefer-lib";
+
+const getPost = zefer.getPost(process.env.ZEFER_API_KEY as string, 'POST_ID or SLUG/TITLE_ID').then((response) => {  // get specific post
+        const text = zefer.getText(getPost.content); // get text of the blog post content
+        console.log(text);
+    });
+
+// or
+
+(async () => {
+    const getPost = await zefer.getPost(process.env.ZEFER_API_KEY as string, 'POST_ID or SLUG/TITLE_ID');  // get specific post
+    const text = zefer.getText(getPost.content); // get text of the blog post content
+    console.log(text);
+})();
+```
+
+## Parameters
+
+| Name    | Type        | Description                                              |
+| ------- | ----------- | -------------------------------------------------------- |
+| content | textContent | The content body of the blog post e.g. response?.content |

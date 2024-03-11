@@ -25,7 +25,26 @@ export default defineConfig({
                 {
                     label: "Usage",
                     items: [
-                        { label: "HTTP API", link: "/usage/http-api/" },
+                        { label: "Basic Usage", link: "/usage/basic-usage/" },
+                        {
+                            label: "Methods", link: "/methods/", items: [
+                                {
+                                    label: "getHtml", link: "/methods/gethtml"
+                                },
+                                {
+                                    label: "getJson", link: "/methods/getjson"
+                                },
+                                {
+                                    label: "getText", link: "/methods/gettext"
+                                },
+                                {
+                                    label: "getPost", link: "/methods/getpost"
+                                },
+                                {
+                                    label: "getPosts", link: "/methods/getposts"
+                                }
+                            ]
+                        }
                     ],
                 },
             ],

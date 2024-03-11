@@ -1,0 +1,30 @@
+---
+title: getPost
+description: getPost method of zefer-lib.
+---
+
+# `getPost`
+
+The `getPost` method is used to get a specific post.
+
+```javascript
+import { zefer } from "zefer-lib";
+
+const getPost = zefer.getPost(process.env.ZEFER_API_KEY as string, 'POST_ID or SLUG/TITLE_ID').then((post) => { // get specific post
+    console.log(post);
+});
+
+// or
+
+(async () => {
+    const post = await zefer.getPost(process.env.ZEFER_API_KEY as string, 'POST_ID or SLUG/TITLE_ID'); // get specific post
+    console.log(post);
+})();
+```
+
+## Parameters
+
+| Name    | Type   | Description                        |
+| ------- | ------ | ---------------------------------- |
+| token   | env    | API key from ZeFer                 |
+| Post ID | string | The ID of the post you want to get |

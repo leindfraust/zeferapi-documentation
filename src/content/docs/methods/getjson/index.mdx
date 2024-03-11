@@ -1,0 +1,31 @@
+---
+title: getJson
+description: getJson method of zefer-lib.
+---
+
+# `getJson`
+
+The `getJson` method returns a JSON content of a post.
+
+```javascript
+import { zefer } from "zefer-lib";
+
+const getPost = zefer.getPost(process.env.ZEFER_API_KEY as string, 'POST_ID or SLUG/TITLE_ID').then((response) => {  // get specific post
+        const json = zefer.getJson(response?.content); // get JSON of the blog post content
+        console.log(json);
+    });
+
+// or
+
+(async () => {
+    const response = await zefer.getPost(process.env.ZEFER_API_KEY as string, 'POST_ID or SLUG/TITLE_ID'); // get specific post
+    const json = zefer.getJson(response?.content); // get JSON of the blog post content
+    console.log(json);
+})();
+```
+
+## Parameters
+
+| Name    | Type        | Description                                              |
+| ------- | ----------- | -------------------------------------------------------- |
+| content | JSONContent | The content body of the blog post e.g. response?.content |
