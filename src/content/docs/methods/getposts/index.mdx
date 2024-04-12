@@ -37,9 +37,10 @@ const getPosts = zefer.getPosts(process.env.ZEFER_API_KEY as string, { // get al
 
 ### PostsOptions (optional)
 
-| Name    | Type   | Description                             |
-| ------- | ------ | --------------------------------------- |
-| q       | string | The search query                        |
-| cursor  | string | The cursor for pagination               |
-| limit   | number | The maximum number of posts to retrieve |
-| orderBy | string | The field to order the posts by         |
+| Name     | Type                       | Description                                      |
+| -------- | -------------------------- | ------------------------------------------------ |
+| q        | string                     | The search query                                 |
+| cursor   | string                     | The cursor for pagination, must be the post's ID |
+| limit    | number                     | The maximum number of posts to retrieve          |
+| orderBy  | "latest" or "most-popular" | The field to order the posts by                  |
+| seriesId | string                     | The ID of the series of the posts                |
